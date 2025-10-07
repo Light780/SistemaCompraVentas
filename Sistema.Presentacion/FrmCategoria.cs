@@ -4,14 +4,12 @@ using System.Windows.Forms;
 
 namespace Sistema.Presentacion
 {
-    public partial class FrmCategoria : Sistema.Presentacion.FrmCrud
+    public partial class FrmCategoria : Form
     {
         private string NombreAnt;
         public FrmCategoria()
         {
             InitializeComponent();
-            this.DgvListado.CellDoubleClick += DgvListado_CellDoubleClick;
-            this.DgvListado.CellContentClick += DgvListado_CellContentClick; 
         }
 
         private void Listar()
@@ -201,6 +199,100 @@ namespace Sistema.Presentacion
             }
         }
 
+        private void BtnActivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente deseas desactivar el(los) registro(s)?", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (Opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string Rpta = "";
+                    int cantRegistrosActivados = 0;
+
+                    foreach (DataGridViewRow row in DgvListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            Rpta = NCategoria.Activar(Codigo);
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                cantRegistrosActivados++;
+                            }
+                        }
+                    }
+
+                    if (cantRegistrosActivados > 0)
+                    {
+                        this.MensajeOk("Se activaron " + cantRegistrosActivados + " registros");
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
+                    }
+
+                    this.Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void BtnDesactivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente deseas desactivar el(los) registro(s)?", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (Opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    int cantRegistrosDesactivados = 0;
+                    string Rpta = "";
+
+                    foreach (DataGridViewRow row in DgvListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            Rpta = NCategoria.Desactivar(Codigo);
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                cantRegistrosDesactivados++;
+                            }
+                        }
+                    }
+
+                    if (cantRegistrosDesactivados > 0)
+                    {
+                        this.MensajeOk("Se desactivaron " + cantRegistrosDesactivados + " registros");
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
+                    }
+
+                    this.Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            TxtBuscar.Clear();
+            this.Listar();
+        }
+
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -211,6 +303,7 @@ namespace Sistema.Presentacion
                 {
                     int Codigo;
                     string Rpta = "";
+                    int cantRegistrosEliminados = 0;
 
                     foreach (DataGridViewRow row in DgvListado.Rows)
                     {
@@ -221,13 +314,18 @@ namespace Sistema.Presentacion
 
                             if (Rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se eliminó el registro: " + Convert.ToString(row.Cells[2].Value));
-                            }
-                            else
-                            {
-                                this.MensajeError(Rpta);
+                                cantRegistrosEliminados++;
                             }
                         }
+                    }
+
+                    if (cantRegistrosEliminados > 0)
+                    {
+                        this.MensajeOk("Se eliminaron " + cantRegistrosEliminados + " registros");
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
                     }
                     this.Listar();
                 }

@@ -2,15 +2,8 @@
 {
     partial class FrmConsulta_IngresoFechas
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,298 +15,491 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.DtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.TabGeneral = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelMostrar = new System.Windows.Forms.Panel();
-            this.TxtTotalD = new System.Windows.Forms.TextBox();
-            this.TxtTotalImpuestoD = new System.Windows.Forms.TextBox();
-            this.TxtSubtotalD = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.BtnCerrarDetalle = new System.Windows.Forms.Button();
             this.DgvMostrarDetalle = new System.Windows.Forms.DataGridView();
-            this.BtnBuscar = new System.Windows.Forms.Button();
-            this.LblTotal = new System.Windows.Forms.Label();
+            this.PanelTotalesDetalle = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TxtSubtotalD = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxtTotalImpuestoD = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtTotalD = new System.Windows.Forms.TextBox();
+            this.BtnCerrarDetalle = new System.Windows.Forms.Button();
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
+            this.PanelInferior = new System.Windows.Forms.Panel();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.PanelBusqueda = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.DtpFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.LblTotal = new System.Windows.Forms.Label();
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.TabGeneral = new System.Windows.Forms.TabControl();
+            this.TabGeneral.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.PanelMostrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMostrarDetalle)).BeginInit();
+            this.PanelTotalesDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.PanelInferior.SuspendLayout();
+            this.PanelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
-            this.TabGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
-            // DtpFechaInicio
+            // TabGeneral
             // 
-            this.DtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFechaInicio.Location = new System.Drawing.Point(53, 18);
-            this.DtpFechaInicio.Margin = new System.Windows.Forms.Padding(2);
-            this.DtpFechaInicio.Name = "DtpFechaInicio";
-            this.DtpFechaInicio.Size = new System.Drawing.Size(151, 20);
-            this.DtpFechaInicio.TabIndex = 9;
+            this.TabGeneral.Controls.Add(this.tabPage1);
+            this.TabGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabGeneral.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TabGeneral.Location = new System.Drawing.Point(0, 0);
+            this.TabGeneral.Name = "TabGeneral";
+            this.TabGeneral.SelectedIndex = 0;
+            this.TabGeneral.Size = new System.Drawing.Size(1200, 700);
+            this.TabGeneral.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.PanelMostrar);
+            this.tabPage1.Controls.Add(this.DgvListado);
+            this.tabPage1.Controls.Add(this.PanelInferior);
+            this.tabPage1.Controls.Add(this.PanelBusqueda);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(20);
+            this.tabPage1.Size = new System.Drawing.Size(1192, 670);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "📊 Consulta de Compras por Fechas";
             // 
             // PanelMostrar
             // 
-            this.PanelMostrar.BackColor = System.Drawing.Color.Moccasin;
-            this.PanelMostrar.Controls.Add(this.TxtTotalD);
-            this.PanelMostrar.Controls.Add(this.TxtTotalImpuestoD);
-            this.PanelMostrar.Controls.Add(this.TxtSubtotalD);
-            this.PanelMostrar.Controls.Add(this.label14);
-            this.PanelMostrar.Controls.Add(this.label13);
-            this.PanelMostrar.Controls.Add(this.label12);
-            this.PanelMostrar.Controls.Add(this.BtnCerrarDetalle);
+            this.PanelMostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PanelMostrar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelMostrar.Controls.Add(this.DgvMostrarDetalle);
-            this.PanelMostrar.Location = new System.Drawing.Point(192, 185);
-            this.PanelMostrar.Margin = new System.Windows.Forms.Padding(2);
+            this.PanelMostrar.Controls.Add(this.PanelTotalesDetalle);
+            this.PanelMostrar.Controls.Add(this.BtnCerrarDetalle);
+            this.PanelMostrar.Location = new System.Drawing.Point(150, 150);
             this.PanelMostrar.Name = "PanelMostrar";
-            this.PanelMostrar.Size = new System.Drawing.Size(777, 348);
-            this.PanelMostrar.TabIndex = 7;
+            this.PanelMostrar.Size = new System.Drawing.Size(900, 450);
+            this.PanelMostrar.TabIndex = 3;
             this.PanelMostrar.Visible = false;
-            // 
-            // TxtTotalD
-            // 
-            this.TxtTotalD.Enabled = false;
-            this.TxtTotalD.Location = new System.Drawing.Point(682, 327);
-            this.TxtTotalD.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtTotalD.Name = "TxtTotalD";
-            this.TxtTotalD.Size = new System.Drawing.Size(86, 20);
-            this.TxtTotalD.TabIndex = 7;
-            // 
-            // TxtTotalImpuestoD
-            // 
-            this.TxtTotalImpuestoD.Enabled = false;
-            this.TxtTotalImpuestoD.Location = new System.Drawing.Point(682, 306);
-            this.TxtTotalImpuestoD.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtTotalImpuestoD.Name = "TxtTotalImpuestoD";
-            this.TxtTotalImpuestoD.Size = new System.Drawing.Size(86, 20);
-            this.TxtTotalImpuestoD.TabIndex = 6;
-            // 
-            // TxtSubtotalD
-            // 
-            this.TxtSubtotalD.Enabled = false;
-            this.TxtSubtotalD.Location = new System.Drawing.Point(682, 282);
-            this.TxtSubtotalD.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtSubtotalD.Name = "TxtSubtotalD";
-            this.TxtSubtotalD.Size = new System.Drawing.Size(86, 20);
-            this.TxtSubtotalD.TabIndex = 5;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(602, 327);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Total";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(602, 308);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Total Impuesto";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(602, 286);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Subtotal";
-            // 
-            // BtnCerrarDetalle
-            // 
-            this.BtnCerrarDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrarDetalle.ForeColor = System.Drawing.Color.Red;
-            this.BtnCerrarDetalle.Location = new System.Drawing.Point(728, 2);
-            this.BtnCerrarDetalle.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnCerrarDetalle.Name = "BtnCerrarDetalle";
-            this.BtnCerrarDetalle.Size = new System.Drawing.Size(40, 32);
-            this.BtnCerrarDetalle.TabIndex = 1;
-            this.BtnCerrarDetalle.Text = "X";
-            this.BtnCerrarDetalle.UseVisualStyleBackColor = true;
             // 
             // DgvMostrarDetalle
             // 
             this.DgvMostrarDetalle.AllowUserToAddRows = false;
             this.DgvMostrarDetalle.AllowUserToDeleteRows = false;
-            this.DgvMostrarDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvMostrarDetalle.Location = new System.Drawing.Point(14, 39);
-            this.DgvMostrarDetalle.Margin = new System.Windows.Forms.Padding(2);
+            this.DgvMostrarDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvMostrarDetalle.BackgroundColor = System.Drawing.Color.White;
+            this.DgvMostrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvMostrarDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvMostrarDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvMostrarDetalle.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvMostrarDetalle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvMostrarDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvMostrarDetalle.EnableHeadersVisualStyles = false;
+            this.DgvMostrarDetalle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.DgvMostrarDetalle.Location = new System.Drawing.Point(0, 0);
             this.DgvMostrarDetalle.Name = "DgvMostrarDetalle";
             this.DgvMostrarDetalle.ReadOnly = true;
-            this.DgvMostrarDetalle.RowTemplate.Height = 24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvMostrarDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvMostrarDetalle.RowHeadersVisible = false;
+            this.DgvMostrarDetalle.RowHeadersWidth = 51;
+            this.DgvMostrarDetalle.RowTemplate.Height = 30;
             this.DgvMostrarDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvMostrarDetalle.Size = new System.Drawing.Size(753, 235);
-            this.DgvMostrarDetalle.TabIndex = 0;
+            this.DgvMostrarDetalle.Size = new System.Drawing.Size(898, 298);
+            this.DgvMostrarDetalle.TabIndex = 1;
             // 
-            // BtnBuscar
+            // PanelTotalesDetalle
             // 
-            this.BtnBuscar.Location = new System.Drawing.Point(456, 15);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(123, 28);
-            this.BtnBuscar.TabIndex = 3;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            this.PanelTotalesDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.PanelTotalesDetalle.Controls.Add(this.label12);
+            this.PanelTotalesDetalle.Controls.Add(this.TxtSubtotalD);
+            this.PanelTotalesDetalle.Controls.Add(this.label13);
+            this.PanelTotalesDetalle.Controls.Add(this.TxtTotalImpuestoD);
+            this.PanelTotalesDetalle.Controls.Add(this.label14);
+            this.PanelTotalesDetalle.Controls.Add(this.TxtTotalD);
+            this.PanelTotalesDetalle.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PanelTotalesDetalle.Location = new System.Drawing.Point(0, 298);
+            this.PanelTotalesDetalle.Name = "PanelTotalesDetalle";
+            this.PanelTotalesDetalle.Padding = new System.Windows.Forms.Padding(15);
+            this.PanelTotalesDetalle.Size = new System.Drawing.Size(898, 100);
+            this.PanelTotalesDetalle.TabIndex = 2;
             // 
-            // LblTotal
+            // label12
             // 
-            this.LblTotal.AutoSize = true;
-            this.LblTotal.Location = new System.Drawing.Point(580, 422);
-            this.LblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(34, 13);
-            this.LblTotal.TabIndex = 1;
-            this.LblTotal.Text = "Total:";
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label12.Location = new System.Drawing.Point(498, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 23);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Subtotal:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TxtSubtotalD
+            // 
+            this.TxtSubtotalD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtSubtotalD.BackColor = System.Drawing.Color.White;
+            this.TxtSubtotalD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtSubtotalD.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.TxtSubtotalD.Location = new System.Drawing.Point(628, 15);
+            this.TxtSubtotalD.Name = "TxtSubtotalD";
+            this.TxtSubtotalD.ReadOnly = true;
+            this.TxtSubtotalD.Size = new System.Drawing.Size(150, 25);
+            this.TxtSubtotalD.TabIndex = 1;
+            this.TxtSubtotalD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label13.Location = new System.Drawing.Point(498, 45);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(120, 23);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "IGV:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TxtTotalImpuestoD
+            // 
+            this.TxtTotalImpuestoD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtTotalImpuestoD.BackColor = System.Drawing.Color.White;
+            this.TxtTotalImpuestoD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtTotalImpuestoD.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.TxtTotalImpuestoD.Location = new System.Drawing.Point(628, 45);
+            this.TxtTotalImpuestoD.Name = "TxtTotalImpuestoD";
+            this.TxtTotalImpuestoD.ReadOnly = true;
+            this.TxtTotalImpuestoD.Size = new System.Drawing.Size(150, 25);
+            this.TxtTotalImpuestoD.TabIndex = 3;
+            this.TxtTotalImpuestoD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.label14.Location = new System.Drawing.Point(498, 75);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(120, 25);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "TOTAL:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TxtTotalD
+            // 
+            this.TxtTotalD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtTotalD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(237)))), ((int)(((byte)(218)))));
+            this.TxtTotalD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtTotalD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.TxtTotalD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.TxtTotalD.Location = new System.Drawing.Point(628, 75);
+            this.TxtTotalD.Name = "TxtTotalD";
+            this.TxtTotalD.ReadOnly = true;
+            this.TxtTotalD.Size = new System.Drawing.Size(150, 29);
+            this.TxtTotalD.TabIndex = 5;
+            this.TxtTotalD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // BtnCerrarDetalle
+            // 
+            this.BtnCerrarDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.BtnCerrarDetalle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnCerrarDetalle.FlatAppearance.BorderSize = 0;
+            this.BtnCerrarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrarDetalle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnCerrarDetalle.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrarDetalle.Location = new System.Drawing.Point(0, 398);
+            this.BtnCerrarDetalle.Name = "BtnCerrarDetalle";
+            this.BtnCerrarDetalle.Size = new System.Drawing.Size(898, 50);
+            this.BtnCerrarDetalle.TabIndex = 3;
+            this.BtnCerrarDetalle.Text = "✖ Cerrar Detalle";
+            this.BtnCerrarDetalle.UseVisualStyleBackColor = false;
+            this.BtnCerrarDetalle.Click += new System.EventHandler(this.BtnCerrarDetalle_Click);
             // 
             // DgvListado
             // 
             this.DgvListado.AllowUserToAddRows = false;
             this.DgvListado.AllowUserToDeleteRows = false;
             this.DgvListado.AllowUserToOrderColumns = true;
-            this.DgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListado.AllowUserToResizeRows = false;
+            this.DgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvListado.BackgroundColor = System.Drawing.Color.White;
+            this.DgvListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.DgvListado.ColumnHeadersHeight = 40;
+            this.DgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
-            this.DgvListado.Location = new System.Drawing.Point(14, 62);
-            this.DgvListado.Margin = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvListado.DefaultCellStyle = dataGridViewCellStyle5;
+            this.DgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvListado.EnableHeadersVisualStyles = false;
+            this.DgvListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.DgvListado.Location = new System.Drawing.Point(20, 110);
+            this.DgvListado.MultiSelect = false;
             this.DgvListado.Name = "DgvListado";
             this.DgvListado.ReadOnly = true;
-            this.DgvListado.RowTemplate.Height = 24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DgvListado.RowHeadersVisible = false;
+            this.DgvListado.RowHeadersWidth = 51;
+            this.DgvListado.RowTemplate.Height = 35;
             this.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListado.Size = new System.Drawing.Size(955, 340);
-            this.DgvListado.TabIndex = 0;
+            this.DgvListado.Size = new System.Drawing.Size(1152, 470);
+            this.DgvListado.TabIndex = 1;
+            this.DgvListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellDoubleClick);
             // 
             // Seleccionar
             // 
             this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.MinimumWidth = 6;
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
+            this.Seleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Seleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // label2
+            // PanelInferior
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(251, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Hasta";
+            this.PanelInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.PanelInferior.Controls.Add(this.BtnCerrar);
+            this.PanelInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PanelInferior.Location = new System.Drawing.Point(20, 580);
+            this.PanelInferior.Name = "PanelInferior";
+            this.PanelInferior.Padding = new System.Windows.Forms.Padding(15);
+            this.PanelInferior.Size = new System.Drawing.Size(1152, 70);
+            this.PanelInferior.TabIndex = 2;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrar.FlatAppearance.BorderSize = 0;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrar.Location = new System.Drawing.Point(1002, 18);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(135, 35);
+            this.BtnCerrar.TabIndex = 0;
+            this.BtnCerrar.Text = "✖ Cerrar";
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // PanelBusqueda
+            // 
+            this.PanelBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.PanelBusqueda.Controls.Add(this.label1);
+            this.PanelBusqueda.Controls.Add(this.DtpFechaInicio);
+            this.PanelBusqueda.Controls.Add(this.label2);
+            this.PanelBusqueda.Controls.Add(this.DtpFechaFin);
+            this.PanelBusqueda.Controls.Add(this.BtnBuscar);
+            this.PanelBusqueda.Controls.Add(this.BtnLimpiar);
+            this.PanelBusqueda.Controls.Add(this.LblTotal);
+            this.PanelBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBusqueda.Location = new System.Drawing.Point(20, 20);
+            this.PanelBusqueda.Name = "PanelBusqueda";
+            this.PanelBusqueda.Padding = new System.Windows.Forms.Padding(15);
+            this.PanelBusqueda.Size = new System.Drawing.Size(1152, 90);
+            this.PanelBusqueda.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Desde";
+            this.label1.Size = new System.Drawing.Size(120, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "📅 Fecha Inicio:";
             // 
-            // tabPage1
+            // DtpFechaInicio
             // 
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.DtpFechaFin);
-            this.tabPage1.Controls.Add(this.DtpFechaInicio);
-            this.tabPage1.Controls.Add(this.PanelMostrar);
-            this.tabPage1.Controls.Add(this.BtnBuscar);
-            this.tabPage1.Controls.Add(this.LblTotal);
-            this.tabPage1.Controls.Add(this.DgvListado);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(980, 535);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Listado";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.DtpFechaInicio.CalendarFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.DtpFechaInicio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.DtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFechaInicio.Location = new System.Drawing.Point(15, 43);
+            this.DtpFechaInicio.Name = "DtpFechaInicio";
+            this.DtpFechaInicio.Size = new System.Drawing.Size(150, 25);
+            this.DtpFechaInicio.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label2.Location = new System.Drawing.Point(180, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "📅 Fecha Fin:";
             // 
             // DtpFechaFin
             // 
+            this.DtpFechaFin.CalendarFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.DtpFechaFin.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.DtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFechaFin.Location = new System.Drawing.Point(290, 18);
-            this.DtpFechaFin.Margin = new System.Windows.Forms.Padding(2);
+            this.DtpFechaFin.Location = new System.Drawing.Point(180, 43);
             this.DtpFechaFin.Name = "DtpFechaFin";
-            this.DtpFechaFin.Size = new System.Drawing.Size(151, 20);
-            this.DtpFechaFin.TabIndex = 10;
+            this.DtpFechaFin.Size = new System.Drawing.Size(150, 25);
+            this.DtpFechaFin.TabIndex = 3;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.BtnBuscar.Location = new System.Drawing.Point(345, 43);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(120, 25);
+            this.BtnBuscar.TabIndex = 4;
+            this.BtnBuscar.Text = "🔍 Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.BtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLimpiar.FlatAppearance.BorderSize = 0;
+            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.BtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.BtnLimpiar.Location = new System.Drawing.Point(475, 43);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(120, 25);
+            this.BtnLimpiar.TabIndex = 5;
+            this.BtnLimpiar.Text = "🗑️ Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // LblTotal
+            // 
+            this.LblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTotal.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.LblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.LblTotal.Location = new System.Drawing.Point(952, 43);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(185, 25);
+            this.LblTotal.TabIndex = 6;
+            this.LblTotal.Text = "Total registros: 0";
+            this.LblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ErrorIcono
             // 
             this.ErrorIcono.ContainerControl = this;
             // 
-            // TabGeneral
-            // 
-            this.TabGeneral.Controls.Add(this.tabPage1);
-            this.TabGeneral.Location = new System.Drawing.Point(11, 11);
-            this.TabGeneral.Margin = new System.Windows.Forms.Padding(2);
-            this.TabGeneral.Name = "TabGeneral";
-            this.TabGeneral.SelectedIndex = 0;
-            this.TabGeneral.Size = new System.Drawing.Size(988, 561);
-            this.TabGeneral.TabIndex = 4;
-            // 
             // FrmConsulta_IngresoFechas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 581);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.TabGeneral);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FrmConsulta_IngresoFechas";
-            this.Text = "Consulta de Ingresos entre Fechas";
-            this.PanelMostrar.ResumeLayout(false);
-            this.PanelMostrar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvMostrarDetalle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "📊 Consulta de Compras por Fechas";
             this.TabGeneral.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.PanelMostrar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvMostrarDetalle)).EndInit();
+            this.PanelTotalesDetalle.ResumeLayout(false);
+            this.PanelTotalesDetalle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).EndInit();
+            this.PanelInferior.ResumeLayout(false);
+            this.PanelBusqueda.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker DtpFechaInicio;
-        private System.Windows.Forms.Panel PanelMostrar;
-        private System.Windows.Forms.TextBox TxtTotalD;
-        private System.Windows.Forms.TextBox TxtTotalImpuestoD;
-        private System.Windows.Forms.TextBox TxtSubtotalD;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button BtnCerrarDetalle;
-        private System.Windows.Forms.DataGridView DgvMostrarDetalle;
-        private System.Windows.Forms.Button BtnBuscar;
-        private System.Windows.Forms.Label LblTotal;
+        private System.Windows.Forms.TabControl TabGeneral;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView DgvListado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel PanelBusqueda;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DateTimePicker DtpFechaInicio;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DtpFechaFin;
+        private System.Windows.Forms.Button BtnBuscar;
+        private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Label LblTotal;
+        private System.Windows.Forms.Panel PanelInferior;
+        private System.Windows.Forms.Button BtnCerrar;
+        private System.Windows.Forms.Panel PanelMostrar;
+        private System.Windows.Forms.DataGridView DgvMostrarDetalle;
+        private System.Windows.Forms.Panel PanelTotalesDetalle;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TxtSubtotalD;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox TxtTotalImpuestoD;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox TxtTotalD;
+        private System.Windows.Forms.Button BtnCerrarDetalle;
         private System.Windows.Forms.ErrorProvider ErrorIcono;
-        private System.Windows.Forms.TabControl TabGeneral;
     }
 }

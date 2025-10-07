@@ -19,6 +19,7 @@ namespace Sistema.Presentacion
         public string Nombre;
         public string Rol;
         public bool Estado;
+        public bool Cerrando = false;
 
         public FrmPrincipal()
         {
@@ -53,6 +54,11 @@ namespace Sistema.Presentacion
             {
                 string FileName = saveFileDialog.FileName;
             }
+        }
+
+        private void TimerReloj_Tick(object sender, EventArgs e)
+        {
+            StFechaHora.Text = "🕐 " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
@@ -140,9 +146,27 @@ namespace Sistema.Presentacion
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            StBarraInferior.Text = "Desarrollado por www.incanatoit.com, Usuario: " + this.Nombre;
-            MessageBox.Show("Bienvenido: "+ this.Nombre,"Sistema de Ventas",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            // Actualizar información del usuario en el panel lateral
+            LblNombreUsuario.Text = this.Nombre;
+            LblRolUsuario.Text = this.Rol;
+            StUsuario.Text = "👤 " + this.Nombre;
+            StRol.Text = "🔐 " + this.Rol;
 
+            // Mensaje de bienvenida mejorado
+            StBarraInferior.Text = "Sistema de Compras y Ventas v1.0";
+
+            // Configurar permisos según el rol
+            ConfigurarPermisosPorRol();
+
+            // Crear accesos rápidos
+            CrearAccesosRapidos();
+
+            // Iniciar el timer del reloj
+            timerReloj.Start();
+        }
+
+        private void ConfigurarPermisosPorRol()
+        {
             if (this.Rol.Equals("Administrador"))
             {
                 MnuAlmacen.Enabled = true;
@@ -152,48 +176,167 @@ namespace Sistema.Presentacion
                 MnuConsultas.Enabled = true;
                 TsCompras.Enabled = true;
                 TsVentas.Enabled = true;
+                TsAlmacen.Enabled = true;
+                TsProveedores.Enabled = true;
+                TsClientes.Enabled = true;
+                TsConsultas.Enabled = true;
+                TsReportes.Enabled = true;
             }
-            else
+            else if (this.Rol.Equals("Vendedor"))
             {
-                if (this.Rol.Equals("Vendedor"))
+                MnuAlmacen.Enabled = false;
+                MnuIngresos.Enabled = false;
+                MnuVentas.Enabled = true;
+                MnuAccesos.Enabled = false;
+                MnuConsultas.Enabled = true;
+                TsCompras.Enabled = false;
+                TsVentas.Enabled = true;
+                TsAlmacen.Enabled = false;
+                TsProveedores.Enabled = false;
+                TsClientes.Enabled = true;
+                TsConsultas.Enabled = true;
+                TsReportes.Enabled = true;
+            }
+            else if (this.Rol.Equals("Almacenero"))
+            {
+                MnuAlmacen.Enabled = true;
+                MnuIngresos.Enabled = true;
+                MnuVentas.Enabled = false;
+                MnuAccesos.Enabled = false;
+                MnuConsultas.Enabled = true;
+                TsCompras.Enabled = true;
+                TsVentas.Enabled = false;
+                TsAlmacen.Enabled = true;
+                TsProveedores.Enabled = true;
+                TsClientes.Enabled = false;
+                TsConsultas.Enabled = true;
+                TsReportes.Enabled = true;
+            }
+        }
+
+
+        private void CrearAccesosRapidos()
+        {
+            FlowLayoutAccesos.Controls.Clear();
+
+            if (this.Rol.Equals("Administrador"))
+            {
+                AgregarBotonAccesoRapido("📦 Categorías", CategoríasToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("📋 Artículos", ArtículosToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("🏢 Proveedores", ProveedoresToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("📥 Compras", ComprasToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("👥 Clientes", ClientesToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("💰 Ventas", VentasToolStripMenuItem1_Click);
+                AgregarBotonAccesoRapido("👤 Usuarios", UsuariosToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("📊 Consultas", ConsultaVentasToolStripMenuItem_Click);
+            }
+            else if (this.Rol.Equals("Vendedor"))
+            {
+                AgregarBotonAccesoRapido("👥 Clientes", ClientesToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("💰 Ventas", VentasToolStripMenuItem1_Click);
+                AgregarBotonAccesoRapido("📊 Consulta Ventas", ConsultaVentasToolStripMenuItem_Click);
+            }
+            else if (this.Rol.Equals("Almacenero"))
+            {
+                AgregarBotonAccesoRapido("📦 Categorías", CategoríasToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("📋 Artículos", ArtículosToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("🏢 Proveedores", ProveedoresToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("📥 Compras", ComprasToolStripMenuItem_Click);
+                AgregarBotonAccesoRapido("📊 Consulta Compras", consultaComprasToolStripMenuItem_Click);
+            }
+        }
+
+        private void AgregarBotonAccesoRapido(string texto, EventHandler onClick)
+        {
+            Button btn = new Button();
+            btn.Text = texto;
+            btn.Width = 190;
+            btn.Height = 40;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = Color.FromArgb(52, 73, 94);
+            btn.ForeColor = Color.White;
+            btn.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+            btn.TextAlign = ContentAlignment.MiddleLeft;
+            btn.Padding = new Padding(10, 0, 0, 0);
+            btn.Cursor = Cursors.Hand;
+            btn.Margin = new Padding(0, 2, 0, 2);
+            btn.Click += onClick;
+
+            // Efectos hover
+            btn.MouseEnter += (s, e) =>
+            {
+                btn.BackColor = Color.FromArgb(41, 128, 185);
+            };
+            btn.MouseLeave += (s, e) =>
+            {
+                btn.BackColor = Color.FromArgb(52, 73, 94);
+            };
+
+            FlowLayoutAccesos.Controls.Add(btn);
+        }
+
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro que desea cerrar la sesión?",
+                "Cerrar Sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                // Registrar el cierre de sesión
+                try
                 {
-                    MnuAlmacen.Enabled = false;
-                    MnuIngresos.Enabled = false;
-                    MnuVentas.Enabled = true;
-                    MnuAccesos.Enabled = false;
-                    MnuConsultas.Enabled = true;
-                    TsCompras.Enabled = false;
-                    TsVentas.Enabled = true;
+                    Logger.RegistrarLogout();
                 }
-                else
+                catch { }
+
+                // Cerrar todos los formularios hijos
+                foreach (Form childForm in this.MdiChildren)
                 {
-                    if (this.Rol.Equals("Almacenero"))
-                    {
-                        MnuAlmacen.Enabled = true;
-                        MnuIngresos.Enabled = true;
-                        MnuVentas.Enabled = false;
-                        MnuAccesos.Enabled = false;
-                        MnuConsultas.Enabled = true;
-                        TsCompras.Enabled = true;
-                        TsVentas.Enabled = false;
-                    }
-                    else
-                    {
-                        MnuAlmacen.Enabled = false;
-                        MnuIngresos.Enabled = false;
-                        MnuVentas.Enabled = false;
-                        MnuAccesos.Enabled = false;
-                        MnuConsultas.Enabled = false;
-                        TsCompras.Enabled = false;
-                        TsVentas.Enabled = false;
-                    }
+                    childForm.Close();
                 }
+
+                // Mostrar el formulario de login
+                FrmLogin loginForm = new FrmLogin();
+                loginForm.Show();
+                this.Hide();
             }
         }
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if(Cerrando == true)
+            {
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro que desea salir del sistema?",
+                "Confirmar Salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Cerrando = true;
+                // Registrar el cierre de sesión
+                try
+                {
+                    Logger.RegistrarLogout();
+                }
+                catch { }
+
+                Application.Exit();
+            }
         }
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -255,5 +398,7 @@ namespace Sistema.Presentacion
             frm.MdiParent = this;
             frm.Show();
         }
+
+
     }
 }

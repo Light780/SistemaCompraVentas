@@ -39,6 +39,11 @@ namespace Sistema.Presentacion
             DgvListado.Columns[1].HeaderText = "Nombre";
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void FrmRol_Load(object sender, EventArgs e)
         {
             this.Listar();

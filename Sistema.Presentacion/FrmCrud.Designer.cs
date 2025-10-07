@@ -137,7 +137,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
+        protected System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
         protected System.Windows.Forms.TabControl TabGeneral;
         protected System.Windows.Forms.TabPage tabPage1;
         protected System.Windows.Forms.TabPage tabPage2;

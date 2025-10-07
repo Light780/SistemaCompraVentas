@@ -16,6 +16,7 @@ namespace Sistema.Presentacion
         public FrmLogin()
         {
             InitializeComponent();
+            TxtClave.Text = "administrador";
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
