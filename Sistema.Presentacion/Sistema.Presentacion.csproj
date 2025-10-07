@@ -138,12 +138,6 @@
     <Compile Include="FrmConsulta_VentaFechas.Designer.cs">
       <DependentUpon>FrmConsulta_VentaFechas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCrud.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCrud.Designer.cs">
-      <DependentUpon>FrmCrud.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,9 +236,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsulta_VentaFechas.resx">
       <DependentUpon>FrmConsulta_VentaFechas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCrud.resx">
-      <DependentUpon>FrmCrud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngreso.resx">
       <DependentUpon>FrmIngreso.cs</DependentUpon>

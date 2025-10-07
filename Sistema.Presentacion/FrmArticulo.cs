@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sistema.Presentacion
 {
-    public partial class FrmArticulo : Sistema.Presentacion.FrmCrud
+    public partial class FrmArticulo : Form
     {
         private string RutaOrigen = string.Empty;
         private string RutaDestino = string.Empty;
@@ -21,8 +21,6 @@ namespace Sistema.Presentacion
         public FrmArticulo() : base()
         {
             InitializeComponent();
-            this.DgvListado.CellDoubleClick += DgvListado_CellDoubleClick;
-            this.DgvListado.CellContentClick += DgvListado_CellContentClick;
             this.DgvListado.Size = new Size(1190, this.DgvListado.Height);
         }
 
@@ -66,7 +64,7 @@ namespace Sistema.Presentacion
             DgvListado.Columns[4].Width = 100;
             DgvListado.Columns[4].HeaderText = "Código";
             DgvListado.Columns[5].Width = 150;
-            DgvListado.Columns[6].Width = 100;
+            DgvListado.Columns[6].Width = 120;
             DgvListado.Columns[6].HeaderText = "Precio Venta";
             DgvListado.Columns[7].Width = 60;
             DgvListado.Columns[8].Width = 200;
@@ -147,6 +145,11 @@ namespace Sistema.Presentacion
 
         private void BtnGenerar_Click(object sender, EventArgs e)
         {
+            if (TxtCodigo.Text.Trim().Equals(""))
+            {
+                this.MensajeError("Debe ingresar un código para generar el código de barras.");
+                return;
+            }
             BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
             Codigo.IncludeLabel = true;
             PanelCodigo.BackgroundImage = Codigo.Encode(BarcodeLib.TYPE.CODE128, TxtCodigo.Text, Color.Black, Color.White, 400, 100);
@@ -431,6 +434,16 @@ namespace Sistema.Presentacion
         {
             Reportes.FrmReporteArticulos Reporte = new Reportes.FrmReporteArticulos();
             Reporte.ShowDialog();
+        }
+
+        private void TxtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    this.Buscar();
+                    break;
+            }
         }
     }
 }

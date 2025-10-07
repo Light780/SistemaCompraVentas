@@ -59,6 +59,21 @@ namespace Sistema.Presentacion
             this.Buscar();
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TxtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.Enter:
+                    this.Buscar();
+                    break;
+            }
+        }
+
         private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Variables.IdCliente = Convert.ToInt32(DgvListado.CurrentRow.Cells["ID"].Value);

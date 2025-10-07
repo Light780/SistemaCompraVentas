@@ -223,7 +223,16 @@ namespace Sistema.Presentacion
                     mensaje += $"Descripción: {row.Cells["Descripcion"].Value}\n";
                     mensaje += $"IP: {row.Cells["DireccionIP"].Value}\n";
                     mensaje += $"Máquina: {row.Cells["NombreMaquina"].Value}\n";
-                    mensaje += $"Exitoso: {row.Cells["Exitoso"].Value}\n";
+                    mensaje += $"Exitoso: ";
+
+                    if(Convert.ToBoolean(row.Cells["Exitoso"].Value) == false)
+                    {
+                        mensaje += "No\n";
+                    }
+                    else
+                    {
+                        mensaje += "Sí\n";
+                    }
 
                     if (row.Cells["MensajeError"].Value != DBNull.Value &&
                         !string.IsNullOrEmpty(row.Cells["MensajeError"].Value?.ToString()))
