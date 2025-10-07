@@ -13,7 +13,7 @@ namespace Sistema.Presentacion
 {
     public partial class FrmCliente : Form
     {
-        private string NombreAnt;
+        private string NumDocumentoAnt;
         public FrmCliente()
         {
             InitializeComponent();
@@ -142,7 +142,7 @@ namespace Sistema.Presentacion
                 BtnActualizar.Visible = true;
                 BtnInsertar.Visible = false;
                 TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value);
-                this.NombreAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
+                this.NumDocumentoAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Num_Documento"].Value);
                 TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
                 CboTipoDocumento.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Tipo_Documento"].Value);
                 TxtNumDocumento.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Num_Documento"].Value);
@@ -169,7 +169,7 @@ namespace Sistema.Presentacion
                 }
                 else
                 {
-                    Rpta = NPersona.Actualizar(Convert.ToInt32(TxtId.Text), "Cliente", this.NombreAnt, TxtNombre.Text.Trim(), CboTipoDocumento.Text, TxtNumDocumento.Text.Trim(), TxtDireccion.Text.Trim(), TxtTelefono.Text.Trim(), TxtEmail.Text.Trim());
+                    Rpta = NPersona.Actualizar(Convert.ToInt32(TxtId.Text), "Cliente", this.NumDocumentoAnt, TxtNombre.Text.Trim(), CboTipoDocumento.Text, TxtNumDocumento.Text.Trim(), TxtDireccion.Text.Trim(), TxtTelefono.Text.Trim(), TxtEmail.Text.Trim());
                     if (Rpta.Equals("OK"))
                     {
                         this.MensajeOk("Se actualizó de forma correcta el registro");

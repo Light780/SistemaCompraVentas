@@ -41,13 +41,22 @@ namespace Sistema.Presentacion
                     }
                     else
                     {
+                        int idUsuario = Convert.ToInt32(Tabla.Rows[0]["IdUsuario"]);
+                        string nombreUsuario = Tabla.Rows[0]["Nombre"].ToString();
+                        int idRol = Convert.ToInt32(Tabla.Rows[0]["IdRol"]);
+                        string nombreRol = Tabla.Rows[0]["Rol"].ToString();
+                        bool estado = Convert.ToBoolean(Tabla.Rows[0][4]);
+
+                        // IMPORTANTE: Configurar el usuario actual para los logs
+                        Logger.RegistrarLogin(idUsuario, nombreUsuario);
+
                         FrmPrincipal Frm = new FrmPrincipal();
-                        Variables.IdUsuario = Convert.ToInt32(Tabla.Rows[0][0]);
-                        Frm.IdUsuario = Convert.ToInt32(Tabla.Rows[0][0]);
-                        Frm.IdRol = Convert.ToInt32(Tabla.Rows[0][1]);  
-                        Frm.Rol = Convert.ToString(Tabla.Rows[0][2]);
-                        Frm.Nombre = Convert.ToString(Tabla.Rows[0][3]);
-                        Frm.Estado = Convert.ToBoolean(Tabla.Rows[0][4]);
+                        Variables.IdUsuario = idUsuario;
+                        Frm.IdUsuario = idUsuario;
+                        Frm.IdRol = idRol;
+                        Frm.Rol = nombreRol;
+                        Frm.Nombre = nombreUsuario;
+                        Frm.Estado = estado;
                         Frm.Show();
                         this.Hide();
                     }

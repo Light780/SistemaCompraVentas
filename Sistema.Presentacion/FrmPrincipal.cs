@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema.Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -197,6 +198,7 @@ namespace Sistema.Presentacion
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Logger.RegistrarLogout();
             DialogResult Opcion;
             Opcion = MessageBox.Show("Deseas salir del Sistema?","Sistema de Ventas",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
             if (Opcion == DialogResult.OK)
@@ -236,6 +238,20 @@ namespace Sistema.Presentacion
         private void ConsultaVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmConsulta_VentaFechas frm = new FrmConsulta_VentaFechas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void consultaComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsulta_IngresoFechas frm = new FrmConsulta_IngresoFechas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void auditoríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLog frm = new FrmLog();
             frm.MdiParent = this;
             frm.Show();
         }

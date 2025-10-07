@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Sistema.Datos;
+using Sistema.Entidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using Sistema.Datos;
 
 namespace Sistema.Negocio
 {
@@ -12,8 +13,25 @@ namespace Sistema.Negocio
     {
         public static DataTable Listar()
         {
-            DRol Datos = new DRol();
-            return Datos.Listar();
+            try
+            {
+                DRol Datos = new DRol();
+                DataTable resultado = Datos.Listar();
+
+                // Registrar la consulta
+                Logger.RegistrarConsulta("Rol",
+                    $"Listado de roles - Total registros: {resultado.Rows.Count}");
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                // Registrar el error
+                Logger.RegistrarError(AccionLog.READ, "Rol", ex,
+                    null,
+                    "Error al listar roles");
+                throw;
+            }
         }
     }
 }

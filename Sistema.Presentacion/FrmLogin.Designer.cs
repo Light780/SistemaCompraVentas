@@ -76,7 +76,7 @@
             // TxtEmail
             // 
             this.TxtEmail.Location = new System.Drawing.Point(89, 63);
-            this.TxtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(220, 20);
             this.TxtEmail.TabIndex = 4;
@@ -85,7 +85,7 @@
             // TxtClave
             // 
             this.TxtClave.Location = new System.Drawing.Point(95, 123);
-            this.TxtClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtClave.Margin = new System.Windows.Forms.Padding(2);
             this.TxtClave.Name = "TxtClave";
             this.TxtClave.PasswordChar = '*';
             this.TxtClave.Size = new System.Drawing.Size(214, 20);
@@ -96,9 +96,9 @@
             // 
             this.pictureBox2.Image = global::Sistema.Presentacion.Properties.Resources.pngtree_user_login_or_authenticate_icon_on_gray_background_flat_icon_ve_png_image_1742031;
             this.pictureBox2.Location = new System.Drawing.Point(313, 40);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(287, 155);
+            this.pictureBox2.Size = new System.Drawing.Size(287, 168);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -107,7 +107,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Turquoise;
             this.pictureBox1.Location = new System.Drawing.Point(1, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(599, 41);
             this.pictureBox1.TabIndex = 2;
@@ -116,7 +116,7 @@
             // BtnAcceder
             // 
             this.BtnAcceder.Location = new System.Drawing.Point(51, 176);
-            this.BtnAcceder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAcceder.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAcceder.Name = "BtnAcceder";
             this.BtnAcceder.Size = new System.Drawing.Size(56, 19);
             this.BtnAcceder.TabIndex = 7;
@@ -127,7 +127,7 @@
             // BtnCancelar
             // 
             this.BtnCancelar.Location = new System.Drawing.Point(236, 176);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(56, 19);
             this.BtnCancelar.TabIndex = 8;
@@ -140,7 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(600, 208);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnAcceder);
             this.Controls.Add(this.pictureBox2);
@@ -151,7 +151,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acceso";
