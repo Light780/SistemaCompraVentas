@@ -269,6 +269,7 @@
             this.Name = "FrmRol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "🔐 Roles del Sistema";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FrmRol_Load);
             this.TabGeneral.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

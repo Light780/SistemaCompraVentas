@@ -540,6 +540,7 @@
             this.Name = "FrmProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "🏢 Gestión de Proveedores";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FrmProveedor_Load);
             this.TabGeneral.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

@@ -701,6 +701,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MinimumSize = new System.Drawing.Size(1000, 650);
             this.Name = "FrmArticulo";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "📦 Gestión de Artículos";
             this.Load += new System.EventHandler(this.FrmArtículo_Load);

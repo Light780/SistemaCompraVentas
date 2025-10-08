@@ -538,6 +538,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "FrmCliente";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "👥 Gestión de Clientes";
             this.Load += new System.EventHandler(this.FrmCliente_Load);

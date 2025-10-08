@@ -476,6 +476,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FrmConsulta_VentaFechas";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "💰 Consulta de Ventas por Fechas";
             this.TabGeneral.ResumeLayout(false);

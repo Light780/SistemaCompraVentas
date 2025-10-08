@@ -368,6 +368,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FrmLog";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "📋 Auditoría - Registro del Sistema";
             this.Load += new System.EventHandler(this.FrmLog_Load);

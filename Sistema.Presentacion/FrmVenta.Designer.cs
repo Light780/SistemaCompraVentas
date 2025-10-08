@@ -1019,6 +1019,7 @@
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "💰 Gestión de Ventas";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
             this.TabGeneral.ResumeLayout(false);

@@ -266,6 +266,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmVista_ClienteVenta";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "👥 Seleccionar Proveedor";
             this.Load += new System.EventHandler(this.FrmVista_ClienteVenta_Load);

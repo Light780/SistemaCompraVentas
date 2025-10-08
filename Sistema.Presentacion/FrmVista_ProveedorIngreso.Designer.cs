@@ -268,6 +268,7 @@
             this.Name = "FrmVista_ProveedorIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "🏢 Seleccionar Proveedor";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FrmVista_ProveedorIngreso_Load);
             this.PanelSuperior.ResumeLayout(false);
             this.PanelSuperior.PerformLayout();

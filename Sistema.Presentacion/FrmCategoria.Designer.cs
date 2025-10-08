@@ -7,32 +7,30 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-
-            // Heredados de FrmCrud
             this.TabGeneral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.LblTotal = new System.Windows.Forms.Label();
-            this.ErrorIcono = new System.Windows.Forms.ErrorProvider();
-
-            // Controles propios
-            this.PanelBusqueda = new System.Windows.Forms.Panel();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.BtnBuscar = new System.Windows.Forms.Button();
-            this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-
             this.PanelAcciones = new System.Windows.Forms.Panel();
             this.ChkSeleccionar = new System.Windows.Forms.CheckBox();
             this.BtnActivar = new System.Windows.Forms.Button();
             this.BtnDesactivar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
-
+            this.PanelBusqueda = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.LblTotal = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.PanelBotones = new System.Windows.Forms.Panel();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnActualizar = new System.Windows.Forms.Button();
+            this.BtnInsertar = new System.Windows.Forms.Button();
             this.PanelFormulario = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtId = new System.Windows.Forms.TextBox();
@@ -40,23 +38,17 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
-
-            this.PanelBotones = new System.Windows.Forms.Panel();
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnInsertar = new System.Windows.Forms.Button();
-            this.BtnActualizar = new System.Windows.Forms.Button();
-
+            this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.TabGeneral.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
-            this.PanelBusqueda.SuspendLayout();
             this.PanelAcciones.SuspendLayout();
-            this.PanelFormulario.SuspendLayout();
+            this.PanelBusqueda.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.PanelBotones.SuspendLayout();
+            this.PanelFormulario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.SuspendLayout();
-
             // 
             // TabGeneral
             // 
@@ -69,7 +61,6 @@
             this.TabGeneral.SelectedIndex = 0;
             this.TabGeneral.Size = new System.Drawing.Size(1000, 600);
             this.TabGeneral.TabIndex = 0;
-
             // 
             // tabPage1
             // 
@@ -77,98 +68,12 @@
             this.tabPage1.Controls.Add(this.DgvListado);
             this.tabPage1.Controls.Add(this.PanelAcciones);
             this.tabPage1.Controls.Add(this.PanelBusqueda);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage1.Size = new System.Drawing.Size(992, 568);
+            this.tabPage1.Size = new System.Drawing.Size(992, 570);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "📋 Listado";
-
-            // 
-            // PanelBusqueda
-            // 
-            this.PanelBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.PanelBusqueda.Controls.Add(this.label2);
-            this.PanelBusqueda.Controls.Add(this.TxtBuscar);
-            this.PanelBusqueda.Controls.Add(this.BtnBuscar);
-            this.PanelBusqueda.Controls.Add(this.BtnLimpiar);
-            this.PanelBusqueda.Controls.Add(this.LblTotal);
-            this.PanelBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelBusqueda.Location = new System.Drawing.Point(20, 20);
-            this.PanelBusqueda.Name = "PanelBusqueda";
-            this.PanelBusqueda.Padding = new System.Windows.Forms.Padding(15);
-            this.PanelBusqueda.Size = new System.Drawing.Size(952, 80);
-            this.PanelBusqueda.TabIndex = 0;
-
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(15, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "🔍 Buscar Categoría:";
-
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.BackColor = System.Drawing.Color.White;
-            this.TxtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtBuscar.Location = new System.Drawing.Point(15, 43);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(450, 25);
-            this.TxtBuscar.TabIndex = 1;
-
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBuscar.FlatAppearance.BorderSize = 0;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.BtnBuscar.Location = new System.Drawing.Point(475, 43);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(100, 25);
-            this.BtnBuscar.TabIndex = 2;
-            this.BtnBuscar.Text = "🔍 Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-
-            // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.BtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLimpiar.FlatAppearance.BorderSize = 0;
-            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.BtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.BtnLimpiar.Location = new System.Drawing.Point(585, 43);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(100, 25);
-            this.BtnLimpiar.TabIndex = 3;
-            this.BtnLimpiar.Text = "🗑️ Limpiar";
-            this.BtnLimpiar.UseVisualStyleBackColor = false;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-
-            // 
-            // LblTotal
-            // 
-            this.LblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblTotal.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.LblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.LblTotal.Location = new System.Drawing.Point(752, 43);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(185, 25);
-            this.LblTotal.TabIndex = 4;
-            this.LblTotal.Text = "Total registros: 0";
-            this.LblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
             // 
             // DgvListado
             // 
@@ -181,7 +86,7 @@
             this.DgvListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -193,7 +98,7 @@
             this.Seleccionar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
@@ -218,11 +123,10 @@
             this.DgvListado.RowHeadersWidth = 51;
             this.DgvListado.RowTemplate.Height = 35;
             this.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListado.Size = new System.Drawing.Size(952, 378);
+            this.DgvListado.Size = new System.Drawing.Size(952, 380);
             this.DgvListado.TabIndex = 1;
             this.DgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentClick);
             this.DgvListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellDoubleClick);
-
             // 
             // Seleccionar
             // 
@@ -232,7 +136,6 @@
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Seleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-
             // 
             // PanelAcciones
             // 
@@ -242,12 +145,11 @@
             this.PanelAcciones.Controls.Add(this.BtnDesactivar);
             this.PanelAcciones.Controls.Add(this.BtnEliminar);
             this.PanelAcciones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanelAcciones.Location = new System.Drawing.Point(20, 478);
+            this.PanelAcciones.Location = new System.Drawing.Point(20, 480);
             this.PanelAcciones.Name = "PanelAcciones";
             this.PanelAcciones.Padding = new System.Windows.Forms.Padding(15);
             this.PanelAcciones.Size = new System.Drawing.Size(952, 70);
             this.PanelAcciones.TabIndex = 2;
-
             // 
             // ChkSeleccionar
             // 
@@ -260,7 +162,6 @@
             this.ChkSeleccionar.Text = "☑️ Seleccionar Todos";
             this.ChkSeleccionar.UseVisualStyleBackColor = true;
             this.ChkSeleccionar.CheckedChanged += new System.EventHandler(this.ChkSeleccionar_CheckedChanged);
-
             // 
             // BtnActivar
             // 
@@ -279,7 +180,6 @@
             this.BtnActivar.UseVisualStyleBackColor = false;
             this.BtnActivar.Visible = false;
             this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
-
             // 
             // BtnDesactivar
             // 
@@ -298,7 +198,6 @@
             this.BtnDesactivar.UseVisualStyleBackColor = false;
             this.BtnDesactivar.Visible = false;
             this.BtnDesactivar.Click += new System.EventHandler(this.BtnDesactivar_Click);
-
             // 
             // BtnEliminar
             // 
@@ -317,109 +216,97 @@
             this.BtnEliminar.UseVisualStyleBackColor = false;
             this.BtnEliminar.Visible = false;
             this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
-
+            // 
+            // PanelBusqueda
+            // 
+            this.PanelBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.PanelBusqueda.Controls.Add(this.label2);
+            this.PanelBusqueda.Controls.Add(this.TxtBuscar);
+            this.PanelBusqueda.Controls.Add(this.BtnBuscar);
+            this.PanelBusqueda.Controls.Add(this.BtnLimpiar);
+            this.PanelBusqueda.Controls.Add(this.LblTotal);
+            this.PanelBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBusqueda.Location = new System.Drawing.Point(20, 20);
+            this.PanelBusqueda.Name = "PanelBusqueda";
+            this.PanelBusqueda.Padding = new System.Windows.Forms.Padding(15);
+            this.PanelBusqueda.Size = new System.Drawing.Size(952, 80);
+            this.PanelBusqueda.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label2.Location = new System.Drawing.Point(15, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "🔍 Buscar Categoría:";
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.BackColor = System.Drawing.Color.White;
+            this.TxtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtBuscar.Location = new System.Drawing.Point(15, 43);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(450, 25);
+            this.TxtBuscar.TabIndex = 1;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.BtnBuscar.Location = new System.Drawing.Point(475, 43);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(100, 25);
+            this.BtnBuscar.TabIndex = 2;
+            this.BtnBuscar.Text = "🔍 Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.BtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLimpiar.FlatAppearance.BorderSize = 0;
+            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.BtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.BtnLimpiar.Location = new System.Drawing.Point(585, 43);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(100, 25);
+            this.BtnLimpiar.TabIndex = 3;
+            this.BtnLimpiar.Text = "🗑️ Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // LblTotal
+            // 
+            this.LblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTotal.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.LblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.LblTotal.Location = new System.Drawing.Point(752, 43);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(185, 25);
+            this.LblTotal.TabIndex = 4;
+            this.LblTotal.Text = "Total registros: 0";
+            this.LblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.PanelBotones);
             this.tabPage2.Controls.Add(this.PanelFormulario);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage2.Size = new System.Drawing.Size(992, 568);
+            this.tabPage2.Size = new System.Drawing.Size(992, 570);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "✏️ Mantenimiento";
-
-            // 
-            // PanelFormulario
-            // 
-            this.PanelFormulario.BackColor = System.Drawing.Color.White;
-            this.PanelFormulario.Controls.Add(this.label1);
-            this.PanelFormulario.Controls.Add(this.TxtId);
-            this.PanelFormulario.Controls.Add(this.label3);
-            this.PanelFormulario.Controls.Add(this.TxtNombre);
-            this.PanelFormulario.Controls.Add(this.label4);
-            this.PanelFormulario.Controls.Add(this.TxtDescripcion);
-            this.PanelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelFormulario.Location = new System.Drawing.Point(20, 20);
-            this.PanelFormulario.Name = "PanelFormulario";
-            this.PanelFormulario.Padding = new System.Windows.Forms.Padding(50);
-            this.PanelFormulario.Size = new System.Drawing.Size(952, 458);
-            this.PanelFormulario.TabIndex = 0;
-
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label1.Location = new System.Drawing.Point(50, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID:";
-
-            // 
-            // TxtId
-            // 
-            this.TxtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtId.Enabled = false;
-            this.TxtId.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtId.Location = new System.Drawing.Point(50, 78);
-            this.TxtId.Name = "TxtId";
-            this.TxtId.ReadOnly = true;
-            this.TxtId.Size = new System.Drawing.Size(150, 25);
-            this.TxtId.TabIndex = 1;
-
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label3.Location = new System.Drawing.Point(50, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "📝 Nombre (*):";
-
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.BackColor = System.Drawing.Color.White;
-            this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtNombre.Location = new System.Drawing.Point(50, 153);
-            this.TxtNombre.MaxLength = 50;
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(500, 25);
-            this.TxtNombre.TabIndex = 3;
-
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label4.Location = new System.Drawing.Point(50, 200);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "📄 Descripción:";
-
-            // 
-            // TxtDescripcion
-            // 
-            this.TxtDescripcion.BackColor = System.Drawing.Color.White;
-            this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtDescripcion.Location = new System.Drawing.Point(50, 228);
-            this.TxtDescripcion.MaxLength = 256;
-            this.TxtDescripcion.Multiline = true;
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtDescripcion.Size = new System.Drawing.Size(850, 100);
-            this.TxtDescripcion.TabIndex = 5;
-
             // 
             // PanelBotones
             // 
@@ -428,12 +315,11 @@
             this.PanelBotones.Controls.Add(this.BtnActualizar);
             this.PanelBotones.Controls.Add(this.BtnInsertar);
             this.PanelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanelBotones.Location = new System.Drawing.Point(20, 478);
+            this.PanelBotones.Location = new System.Drawing.Point(20, 480);
             this.PanelBotones.Name = "PanelBotones";
             this.PanelBotones.Padding = new System.Windows.Forms.Padding(50, 15, 50, 15);
             this.PanelBotones.Size = new System.Drawing.Size(952, 70);
             this.PanelBotones.TabIndex = 1;
-
             // 
             // BtnCancelar
             // 
@@ -450,25 +336,6 @@
             this.BtnCancelar.Text = "❌ Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-
-            // 
-            // BtnInsertar
-            // 
-            this.BtnInsertar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.BtnInsertar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnInsertar.FlatAppearance.BorderSize = 0;
-            this.BtnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnInsertar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnInsertar.ForeColor = System.Drawing.Color.White;
-            this.BtnInsertar.Location = new System.Drawing.Point(752, 18);
-            this.BtnInsertar.Name = "BtnInsertar";
-            this.BtnInsertar.Size = new System.Drawing.Size(150, 35);
-            this.BtnInsertar.TabIndex = 1;
-            this.BtnInsertar.Text = "💾 Guardar";
-            this.BtnInsertar.UseVisualStyleBackColor = false;
-            this.BtnInsertar.Click += new System.EventHandler(this.BtnInsertar_Click);
-
             // 
             // BtnActualizar
             // 
@@ -487,16 +354,113 @@
             this.BtnActualizar.UseVisualStyleBackColor = false;
             this.BtnActualizar.Visible = false;
             this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
-
+            // 
+            // BtnInsertar
+            // 
+            this.BtnInsertar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.BtnInsertar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnInsertar.FlatAppearance.BorderSize = 0;
+            this.BtnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInsertar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnInsertar.ForeColor = System.Drawing.Color.White;
+            this.BtnInsertar.Location = new System.Drawing.Point(752, 18);
+            this.BtnInsertar.Name = "BtnInsertar";
+            this.BtnInsertar.Size = new System.Drawing.Size(150, 35);
+            this.BtnInsertar.TabIndex = 1;
+            this.BtnInsertar.Text = "💾 Guardar";
+            this.BtnInsertar.UseVisualStyleBackColor = false;
+            this.BtnInsertar.Click += new System.EventHandler(this.BtnInsertar_Click);
+            // 
+            // PanelFormulario
+            // 
+            this.PanelFormulario.BackColor = System.Drawing.Color.White;
+            this.PanelFormulario.Controls.Add(this.label1);
+            this.PanelFormulario.Controls.Add(this.TxtId);
+            this.PanelFormulario.Controls.Add(this.label3);
+            this.PanelFormulario.Controls.Add(this.TxtNombre);
+            this.PanelFormulario.Controls.Add(this.label4);
+            this.PanelFormulario.Controls.Add(this.TxtDescripcion);
+            this.PanelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelFormulario.Location = new System.Drawing.Point(20, 20);
+            this.PanelFormulario.Name = "PanelFormulario";
+            this.PanelFormulario.Padding = new System.Windows.Forms.Padding(50);
+            this.PanelFormulario.Size = new System.Drawing.Size(952, 530);
+            this.PanelFormulario.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label1.Location = new System.Drawing.Point(50, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ID:";
+            // 
+            // TxtId
+            // 
+            this.TxtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtId.Enabled = false;
+            this.TxtId.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtId.Location = new System.Drawing.Point(50, 78);
+            this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
+            this.TxtId.Size = new System.Drawing.Size(150, 25);
+            this.TxtId.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label3.Location = new System.Drawing.Point(50, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(200, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "📝 Nombre (*):";
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.BackColor = System.Drawing.Color.White;
+            this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtNombre.Location = new System.Drawing.Point(50, 153);
+            this.TxtNombre.MaxLength = 50;
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(500, 25);
+            this.TxtNombre.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label4.Location = new System.Drawing.Point(50, 200);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(200, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "📄 Descripción:";
+            // 
+            // TxtDescripcion
+            // 
+            this.TxtDescripcion.BackColor = System.Drawing.Color.White;
+            this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtDescripcion.Location = new System.Drawing.Point(50, 228);
+            this.TxtDescripcion.MaxLength = 256;
+            this.TxtDescripcion.Multiline = true;
+            this.TxtDescripcion.Name = "TxtDescripcion";
+            this.TxtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TxtDescripcion.Size = new System.Drawing.Size(850, 100);
+            this.TxtDescripcion.TabIndex = 5;
             // 
             // ErrorIcono
             // 
             this.ErrorIcono.ContainerControl = this;
-
             // 
             // FrmCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 600);
@@ -504,21 +468,23 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "FrmCategoria";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "📦 Gestión de Categorías";
             this.Load += new System.EventHandler(this.FrmCategoria_Load);
             this.TabGeneral.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
+            this.PanelAcciones.ResumeLayout(false);
             this.PanelBusqueda.ResumeLayout(false);
             this.PanelBusqueda.PerformLayout();
-            this.PanelAcciones.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.PanelBotones.ResumeLayout(false);
             this.PanelFormulario.ResumeLayout(false);
             this.PanelFormulario.PerformLayout();
-            this.PanelBotones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -560,5 +526,6 @@
         protected System.Windows.Forms.Label LblTotal;
         protected System.Windows.Forms.ErrorProvider ErrorIcono;
         public System.Windows.Forms.DataGridView DgvListado;
+        private System.ComponentModel.IContainer components;
     }
 }

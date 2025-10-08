@@ -651,6 +651,7 @@
             this.Name = "FrmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "👤 Gestión de Usuarios";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FrmUsuario_Load);
             this.TabGeneral.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

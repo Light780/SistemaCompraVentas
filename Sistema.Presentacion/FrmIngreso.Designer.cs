@@ -999,6 +999,7 @@
             this.ClientSize = new System.Drawing.Size(1400, 750);
             this.Controls.Add(this.TabGeneral);
             this.Name = "FrmIngreso";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "📦 Gestión de Ingresos/Compras";
             this.Load += new System.EventHandler(this.FrmIngreso_Load);
