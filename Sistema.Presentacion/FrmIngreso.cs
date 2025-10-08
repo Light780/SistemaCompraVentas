@@ -53,7 +53,7 @@ namespace Sistema.Presentacion
             DgvListado.Columns[0].Visible = false;
             DgvListado.Columns[1].Visible = false;
             DgvListado.Columns[2].Visible = false;
-            DgvListado.Columns[0].Width = 100;
+            DgvListado.Columns[0].Width = 140;
             DgvListado.Columns[3].Width = 150;
             DgvListado.Columns[4].Width = 150;
             DgvListado.Columns[5].Width = 100;
@@ -110,9 +110,9 @@ namespace Sistema.Presentacion
             DgvDetalle.Columns[1].HeaderText = "CODIGO";
             DgvDetalle.Columns[1].Width = 100;
             DgvDetalle.Columns[2].HeaderText = "ARTICULO";
-            DgvDetalle.Columns[2].Width = 200;
+            DgvDetalle.Columns[2].Width = 400;
             DgvDetalle.Columns[3].HeaderText = "CANTIDAD";
-            DgvDetalle.Columns[3].Width = 70;
+            DgvDetalle.Columns[3].Width = 90;
             DgvDetalle.Columns[4].HeaderText = "PRECIO";
             DgvDetalle.Columns[4].Width = 70;
             DgvDetalle.Columns[5].HeaderText = "IMPORTE";
@@ -125,6 +125,7 @@ namespace Sistema.Presentacion
 
         private void FormatoArticulos()
         {
+            DgvArticulos.Columns[0].Visible = false;
             DgvArticulos.Columns[1].Visible = false;
             DgvArticulos.Columns[2].Width = 100;
             DgvArticulos.Columns[2].HeaderText = "Categoría";
@@ -134,9 +135,10 @@ namespace Sistema.Presentacion
             DgvArticulos.Columns[5].Width = 100;
             DgvArticulos.Columns[5].HeaderText = "Precio Venta";
             DgvArticulos.Columns[6].Width = 60;
-            DgvArticulos.Columns[7].Width = 200;
+            DgvArticulos.Columns[7].Width = 400;
             DgvArticulos.Columns[7].HeaderText = "Descripción";
-            DgvArticulos.Columns[8].Width = 100;
+            DgvArticulos.Columns[8].Visible = false;
+            DgvArticulos.Columns[9].Visible = false;
         }
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
@@ -229,6 +231,7 @@ namespace Sistema.Presentacion
         private void BtnVerArticulos_Click(object sender, EventArgs e)
         {
             PanelArticulos.Visible = true;
+            PanelArticulos.BringToFront();
         }
 
         private void BtnCerrarArticulos_Click(object sender, EventArgs e)
@@ -323,6 +326,7 @@ namespace Sistema.Presentacion
                 TxtTotalImpuestoD.Text=(Total-SubTotal).ToString("#0.00#");
                 TxtTotalD.Text=Total.ToString("#0.00#");
                 PanelMostrar.Visible = true;
+                PanelMostrar.BringToFront();
             }
             catch (Exception ex)
             {

@@ -173,14 +173,14 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem1
             // 
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(126, 24);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
             this.ventasToolStripMenuItem1.Text = "Ventas";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.VentasToolStripMenuItem1_Click);
             // 
@@ -330,6 +330,7 @@
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(60, 23);
             this.helpMenu.Text = "Ayuda";
+            this.helpMenu.Visible = false;
             // 
             // contentsToolStripMenuItem
             // 
@@ -390,6 +391,7 @@
             this.toolStrip.Size = new System.Drawing.Size(960, 64);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
+            this.toolStrip.Visible = false;
             // 
             // TsCompras
             // 
@@ -545,10 +547,10 @@
             this.PanelLateral.Controls.Add(this.PanelAccesosRapidos);
             this.PanelLateral.Controls.Add(this.PanelUsuario);
             this.PanelLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelLateral.Location = new System.Drawing.Point(0, 93);
-            this.PanelLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelLateral.Location = new System.Drawing.Point(0, 29);
+            this.PanelLateral.Margin = new System.Windows.Forms.Padding(2);
             this.PanelLateral.Name = "PanelLateral";
-            this.PanelLateral.Size = new System.Drawing.Size(165, 466);
+            this.PanelLateral.Size = new System.Drawing.Size(165, 530);
             this.PanelLateral.TabIndex = 4;
             // 
             // BtnCerrarSesion
@@ -560,8 +562,8 @@
             this.BtnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.BtnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(0, 434);
-            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(0, 498);
+            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(165, 32);
             this.BtnCerrarSesion.TabIndex = 2;
@@ -575,10 +577,10 @@
             this.PanelAccesosRapidos.Controls.Add(this.FlowLayoutAccesos);
             this.PanelAccesosRapidos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAccesosRapidos.Location = new System.Drawing.Point(0, 138);
-            this.PanelAccesosRapidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelAccesosRapidos.Margin = new System.Windows.Forms.Padding(2);
             this.PanelAccesosRapidos.Name = "PanelAccesosRapidos";
-            this.PanelAccesosRapidos.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.PanelAccesosRapidos.Size = new System.Drawing.Size(165, 328);
+            this.PanelAccesosRapidos.Padding = new System.Windows.Forms.Padding(8);
+            this.PanelAccesosRapidos.Size = new System.Drawing.Size(165, 392);
             this.PanelAccesosRapidos.TabIndex = 1;
             // 
             // LblAccesosRapidos
@@ -600,10 +602,10 @@
             this.FlowLayoutAccesos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlowLayoutAccesos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowLayoutAccesos.Location = new System.Drawing.Point(8, 8);
-            this.FlowLayoutAccesos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FlowLayoutAccesos.Margin = new System.Windows.Forms.Padding(2);
             this.FlowLayoutAccesos.Name = "FlowLayoutAccesos";
             this.FlowLayoutAccesos.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.FlowLayoutAccesos.Size = new System.Drawing.Size(149, 312);
+            this.FlowLayoutAccesos.Size = new System.Drawing.Size(149, 376);
             this.FlowLayoutAccesos.TabIndex = 1;
             this.FlowLayoutAccesos.WrapContents = false;
             // 
@@ -615,7 +617,7 @@
             this.PanelUsuario.Controls.Add(this.LblRolUsuario);
             this.PanelUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelUsuario.Location = new System.Drawing.Point(0, 0);
-            this.PanelUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.PanelUsuario.Name = "PanelUsuario";
             this.PanelUsuario.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.PanelUsuario.Size = new System.Drawing.Size(165, 138);
@@ -624,7 +626,7 @@
             // PictureBoxUsuario
             // 
             this.PictureBoxUsuario.Location = new System.Drawing.Point(52, 12);
-            this.PictureBoxUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PictureBoxUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBoxUsuario.Name = "PictureBoxUsuario";
             this.PictureBoxUsuario.Size = new System.Drawing.Size(60, 65);
             this.PictureBoxUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -675,7 +677,7 @@
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(754, 495);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

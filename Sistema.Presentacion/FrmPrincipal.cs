@@ -24,6 +24,7 @@ namespace Sistema.Presentacion
         public FrmPrincipal()
         {
             InitializeComponent();
+            menuStrip.Renderer = new RendererEx();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -341,13 +342,7 @@ namespace Sistema.Presentacion
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Logger.RegistrarLogout();
-            DialogResult Opcion;
-            Opcion = MessageBox.Show("Deseas salir del Sistema?","Sistema de Ventas",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-            if (Opcion == DialogResult.OK)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
 
         private void ProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
