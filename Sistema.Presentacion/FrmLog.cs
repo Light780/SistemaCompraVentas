@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Sistema.Negocio;
+using System;
 using System.Data;
+using System.Text;
 using System.Windows.Forms;
-using Sistema.Negocio;
 
 namespace Sistema.Presentacion
 {
@@ -129,7 +130,7 @@ namespace Sistema.Presentacion
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    System.IO.StreamWriter writer = new System.IO.StreamWriter(saveFileDialog.FileName);
+                    System.IO.StreamWriter writer = new System.IO.StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
 
                     // Escribir encabezados
                     for (int i = 0; i < DgvListado.Columns.Count; i++)
@@ -138,7 +139,7 @@ namespace Sistema.Presentacion
                         {
                             writer.Write(DgvListado.Columns[i].HeaderText);
                             if (i < DgvListado.Columns.Count - 1)
-                                writer.Write(",");
+                                writer.Write(";");
                         }
                     }
                     writer.WriteLine();
@@ -152,12 +153,12 @@ namespace Sistema.Presentacion
                             {
                                 string value = row.Cells[i].Value?.ToString() ?? "";
                                 // Escapar comillas y comas
-                                if (value.Contains(",") || value.Contains("\""))
+                                if (value.Contains(";") || value.Contains("\""))
                                     value = "\"" + value.Replace("\"", "\"\"") + "\"";
 
                                 writer.Write(value);
                                 if (i < DgvListado.Columns.Count - 1)
-                                    writer.Write(",");
+                                    writer.Write(";");
                             }
                         }
                         writer.WriteLine();

@@ -156,5 +156,72 @@ namespace Sistema.Presentacion
         {
             PanelMostrar.Visible = false;
         }
+
+        private void BtnExportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DgvListado.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay datos para exportar", "Sistema",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivo CSV|*.csv|Archivo de Texto|*.txt";
+                saveFileDialog.Title = "Exportar importes";
+                saveFileDialog.FileName = $"Reporte_Ingresos_{DateTime.Now:yyyyMMdd_HHmmss}";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.StreamWriter writer = new System.IO.StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
+
+                    // Escribir encabezados
+                    for (int i = 0; i < DgvListado.Columns.Count; i++)
+                    {
+                        if (DgvListado.Columns[i].Visible)
+                        {
+                            writer.Write(DgvListado.Columns[i].HeaderText);
+                            if (i < DgvListado.Columns.Count - 1)
+                                writer.Write(";");
+                        }
+                    }
+                    writer.WriteLine();
+
+                    // Escribir datos
+                    foreach (DataGridViewRow row in DgvListado.Rows)
+                    {
+                        for (int i = 0; i < DgvListado.Columns.Count; i++)
+                        {
+                            if (DgvListado.Columns[i].Visible)
+                            {
+                                string value = row.Cells[i].Value?.ToString() ?? "";
+                                // Escapar comillas y comas
+                                if (value.Contains(";") || value.Contains("\""))
+                                    value = "\"" + value.Replace("\"", "\"\"") + "\"";
+
+                                writer.Write(value);
+                                if (i < DgvListado.Columns.Count - 1)
+                                    writer.Write(";");
+                            }
+                        }
+                        writer.WriteLine();
+                    }
+
+                    writer.Close();
+                    MessageBox.Show("Datos exportados correctamente", "Sistema",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Logger.RegistrarExportacion("Ingreso", "CSV",
+                        $"Exportados {DgvListado.Rows.Count} registros de ingresos");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al exportar: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
