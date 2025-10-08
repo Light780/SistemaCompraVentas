@@ -45,7 +45,7 @@ namespace Sistema.Presentacion
 
             // Configurar columnas visibles
             DgvListado.Columns[3].Width = 200;
-            DgvListado.Columns[3].HeaderText = "Cliente";
+            DgvListado.Columns[3].HeaderText = "Proveedor";
 
             DgvListado.Columns[4].Width = 100;
             DgvListado.Columns[4].HeaderText = "Fecha";

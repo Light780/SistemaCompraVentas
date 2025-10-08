@@ -29,16 +29,16 @@ namespace Sistema.Presentacion
         private void CargarComboAcciones()
         {
             CboAccion.Items.Add("Todas");
-            CboAccion.Items.Add("CREATE");
-            CboAccion.Items.Add("READ");
-            CboAccion.Items.Add("UPDATE");
-            CboAccion.Items.Add("DELETE");
-            CboAccion.Items.Add("LOGIN");
-            CboAccion.Items.Add("LOGOUT");
-            CboAccion.Items.Add("ACTIVATE");
-            CboAccion.Items.Add("DEACTIVATE");
-            CboAccion.Items.Add("EXPORT");
-            CboAccion.Items.Add("PRINT");
+            CboAccion.Items.Add("CREAR");
+            CboAccion.Items.Add("LEER");
+            CboAccion.Items.Add("ACTUALIZAR");
+            CboAccion.Items.Add("ELIMINAR");
+            CboAccion.Items.Add("INICIAR SESIÓN");
+            CboAccion.Items.Add("CERRAR SESIÓN");
+            CboAccion.Items.Add("ACTIVAR");
+            CboAccion.Items.Add("DESACTIVAR");
+            CboAccion.Items.Add("EXPORTAR");
+            CboAccion.Items.Add("IMPRIMIR");
             CboAccion.SelectedIndex = 0;
         }
 
@@ -49,7 +49,7 @@ namespace Sistema.Presentacion
                 // Preparar filtros
                 DateTime? fechaInicio = ChkFiltroFecha.Checked ? (DateTime?)DtpFechaInicio.Value.Date : null;
                 DateTime? fechaFin = ChkFiltroFecha.Checked ? (DateTime?)DtpFechaFin.Value.Date.AddDays(1).AddSeconds(-1) : null;
-                string accion = CboAccion.SelectedIndex > 0 ? CboAccion.Text : null;
+                string accion = CboAccion.SelectedIndex > 0 ? ObtenerAccion(CboAccion.Text) : null;
 
                 // Obtener datos
                 DataTable dt = Logger.Listar(fechaInicio, fechaFin, null, accion, null);
@@ -62,6 +62,35 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show("Error al cargar logs: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string ObtenerAccion(string text)
+        {
+            switch (text)
+            {
+                case "CREAR":
+                    return "CREATE";
+                case "LEER":
+                    return "READ";
+                case "ACTUALIZAR":
+                    return "UPDATE";
+                case "ELIMINAR":
+                    return "DELETE";
+                case "INICIAR SESIÓN":
+                    return "LOGIN";
+                case "CERRAR SESIÓN":
+                    return "LOGOUT";
+                case "ACTIVAR":
+                    return "ACTIVATE";
+                case "DESACTIVAR":
+                    return "DEACTIVATE";
+                case "EXPORTAR":
+                    return "EXPORT";
+                case "IMPRIMIR":
+                    return "PRINT";
+                default:
+                    return null;
             }
         }
 
