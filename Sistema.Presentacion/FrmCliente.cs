@@ -107,12 +107,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (TxtNombre.Text == string.Empty)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
-                }
-                else
+                if (ValidarCampos())
                 {
                     Rpta = NPersona.Insertar("Cliente", TxtNombre.Text.Trim(), CboTipoDocumento.Text, TxtNumDocumento.Text.Trim(), TxtDireccion.Text.Trim(), TxtTelefono.Text.Trim(), TxtEmail.Text.Trim());
                     if (Rpta.Equals("OK"))
@@ -162,12 +157,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (TxtId.Text == string.Empty || TxtNombre.Text == string.Empty)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NPersona.Actualizar(Convert.ToInt32(TxtId.Text), "Cliente", this.NumDocumentoAnt, TxtNombre.Text.Trim(), CboTipoDocumento.Text, TxtNumDocumento.Text.Trim(), TxtDireccion.Text.Trim(), TxtTelefono.Text.Trim(), TxtEmail.Text.Trim());
                     if (Rpta.Equals("OK"))
@@ -187,6 +177,40 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            ErrorIcono.Clear();
+
+            // Validate each field individually
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(TxtNumDocumento.Text))
+            {
+                ErrorIcono.SetError(TxtNumDocumento, "Ingrese un número de documento.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtNombre.Text))
+            {
+                ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(CboTipoDocumento.Text))
+            {
+                ErrorIcono.SetError(CboTipoDocumento, "Ingrese un tipo de documento.");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
+                this.MensajeError("Por favor, corrija los campos marcados.");
+                return false; // or handle accordingly
+            }
+
+            return true;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

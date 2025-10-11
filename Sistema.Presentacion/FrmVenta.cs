@@ -113,15 +113,15 @@ namespace Sistema.Presentacion
             DgvDetalle.Columns[2].HeaderText = "ARTICULO";
             DgvDetalle.Columns[2].Width = 400;
             DgvDetalle.Columns[3].HeaderText = "STOCK";
-            DgvDetalle.Columns[3].Width = 50;
+            DgvDetalle.Columns[3].Width = 100;
             DgvDetalle.Columns[4].HeaderText = "CANTIDAD";
-            DgvDetalle.Columns[4].Width = 50;
+            DgvDetalle.Columns[4].Width = 150;
             DgvDetalle.Columns[5].HeaderText = "PRECIO";
-            DgvDetalle.Columns[5].Width = 70;
+            DgvDetalle.Columns[5].Width = 140;
             DgvDetalle.Columns[6].HeaderText = "DESCUENTO";
-            DgvDetalle.Columns[6].Width = 70;
+            DgvDetalle.Columns[6].Width = 140;
             DgvDetalle.Columns[7].HeaderText = "IMPORTE";
-            DgvDetalle.Columns[7].Width = 80;
+            DgvDetalle.Columns[7].Width = 160;
 
             DgvDetalle.Columns[1].ReadOnly = true;
             DgvDetalle.Columns[2].ReadOnly = true;
@@ -209,7 +209,14 @@ namespace Sistema.Presentacion
             {
                 foreach (DataRow FilaTemp in DtDetalle.Rows)
                 {
-                    Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+                    try
+                    {
+                        Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                   
                 }
             }
 
@@ -283,12 +290,6 @@ namespace Sistema.Presentacion
             int Stock = Convert.ToInt32(Fila["stock"]);
             decimal Precio = Convert.ToDecimal(Fila["precio"]);
             decimal Descuento = Convert.ToDecimal(Fila["descuento"]);
-            if (Cantidad>Stock)
-            {
-                Cantidad = Stock;
-                this.MensajeError("La cantidad de venta del artículo " + Articulo + " supera el stock diponible " + Stock);
-                Fila["cantidad"] = Cantidad;
-            }
             Fila["importe"] = (Precio * Cantidad) - Descuento;
             this.CalcularTotales();
         }
@@ -298,15 +299,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (TxtIdCliente.Text == string.Empty || TxtImpuesto.Text == string.Empty || TxtNumComprobante.Text == string.Empty || DtDetalle.Rows.Count == 0)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(TxtIdCliente, "Seleccione un cliente.");
-                    ErrorIcono.SetError(TxtImpuesto, "Ingrese un impuesto.");
-                    ErrorIcono.SetError(TxtNumComprobante, "Ingrese el número del comprobante.");
-                    ErrorIcono.SetError(DgvDetalle, "Debe tener al menos un detalle.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NVenta.Insertar(Convert.ToInt32(TxtIdCliente.Text), Variables.IdUsuario, CboComprobante.Text, TxtSerieComprobante.Text.Trim(), TxtNumComprobante.Text.Trim(), Convert.ToDecimal(TxtImpuesto.Text), Convert.ToDecimal(TxtTotal.Text), DtDetalle);
                     if (Rpta.Equals("OK"))
@@ -325,6 +318,57 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            ErrorIcono.Clear();
+
+            // Validate each field individually
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(TxtIdCliente.Text))
+            {
+                ErrorIcono.SetError(TxtIdCliente, "Seleccione un cliente.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtImpuesto.Text))
+            {
+                ErrorIcono.SetError(TxtImpuesto, "Ingrese un impuesto.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtSerieComprobante.Text))
+            {
+                ErrorIcono.SetError(TxtImpuesto, "Ingrese la serie de comprobante.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtNumComprobante.Text))
+            {
+                ErrorIcono.SetError(TxtNumComprobante, "Ingrese el número del comprobante.");
+                isValid = false;
+            }
+
+            if (DtDetalle.Rows.Count == 0)
+            {
+                ErrorIcono.SetError(DgvDetalle, "Debe tener al menos un detalle.");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
+                this.MensajeError("Por favor, corrija los campos marcados.");
+                return false; // or handle accordingly
+            }
+
+            return true;
+        }
+
+        private void DgvDetalle_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            this.CalcularTotales();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

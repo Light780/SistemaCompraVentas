@@ -125,15 +125,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (CboRol.Text == string.Empty || TxtNombre.Text == string.Empty || TxtEmail.Text ==string.Empty || TxtClave.Text == string.Empty)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(CboRol, "Seleccione un rol.");
-                    ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
-                    ErrorIcono.SetError(TxtEmail, "Ingrese un email.");
-                    ErrorIcono.SetError(TxtClave, "Ingrese una clave de acceso.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NUsuario.Insertar(Convert.ToInt32(CboRol.SelectedValue), TxtNombre.Text.Trim(), CboTipoDocumento.Text,TxtNumDocumento.Text.Trim(),TxtDireccion.Text.Trim(),TxtTelefono.Text.Trim(),TxtEmail.Text.Trim(),TxtClave.Text.Trim());
                     if (Rpta.Equals("OK"))
@@ -151,6 +143,80 @@ namespace Sistema.Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private bool ValidarCampos()
+        {
+            // Limpiar errores previos
+            ErrorIcono.Clear();
+
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(CboTipoDocumento.Text))
+            {
+                ErrorIcono.SetError(CboTipoDocumento, "Seleccione un tipo de documento.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtNumDocumento.Text))
+            {
+                ErrorIcono.SetError(TxtNumDocumento, "Ingrese un número de documento.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(CboRol.Text))
+            {
+                ErrorIcono.SetError(CboRol, "Seleccione un rol.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtNombre.Text))
+            {
+                ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtEmail.Text))
+            {
+                ErrorIcono.SetError(TxtEmail, "Ingrese un email.");
+                isValid = false;
+            }
+            else if (!EsEmailValido(TxtEmail.Text))
+            {
+                ErrorIcono.SetError(TxtEmail, "Ingrese un email válido.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtClave.Text))
+            {
+                ErrorIcono.SetError(TxtClave, "Ingrese una clave de acceso.");
+                isValid = false;
+            }
+            else if (TxtClave.Text.Length < 6)
+            {
+                ErrorIcono.SetError(TxtClave, "La clave debe tener al menos 6 caracteres.");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
+                this.MensajeError("Por favor, corrija los campos marcados.");
+            }
+
+            return isValid;
+        }
+
+        private bool EsEmailValido(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -183,14 +249,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (TxtId.Text == string.Empty || CboRol.Text == string.Empty || TxtNombre.Text == string.Empty || TxtEmail.Text == string.Empty)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(CboRol, "Seleccione un rol.");
-                    ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
-                    ErrorIcono.SetError(TxtEmail, "Ingrese un email.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NUsuario.Actualizar(Convert.ToInt32(TxtId.Text),Convert.ToInt32(CboRol.SelectedValue), TxtNombre.Text.Trim(), CboTipoDocumento.Text, TxtNumDocumento.Text.Trim(), TxtDireccion.Text.Trim(), TxtTelefono.Text.Trim(), this.EmailAnt, TxtEmail.Text.Trim(), TxtClave.Text.Trim());
                     if (Rpta.Equals("OK"))

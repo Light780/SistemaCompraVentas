@@ -777,6 +777,7 @@
             this.DgvDetalle.Size = new System.Drawing.Size(1244, 200);
             this.DgvDetalle.TabIndex = 3;
             this.DgvDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDetalle_CellEndEdit);
+            this.DgvDetalle.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvDetalle_RowsRemoved);
             // 
             // label8
             // 

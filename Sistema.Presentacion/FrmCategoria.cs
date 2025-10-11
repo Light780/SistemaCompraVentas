@@ -132,6 +132,7 @@ namespace Sistema.Presentacion
                 BtnInsertar.Visible = false;
                 TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value);
                 TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
+                this.NombreAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
                 TxtDescripcion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Descripcion"].Value);
                 TabGeneral.SelectedIndex = 1;
             }
@@ -227,7 +228,7 @@ namespace Sistema.Presentacion
 
                     if (cantRegistrosActivados > 0)
                     {
-                        this.MensajeOk("Se activaron " + cantRegistrosActivados + " registros");
+                        this.MensajeOk("Se activó " + cantRegistrosActivados + " registro(s)");
                     }
                     else
                     {
@@ -271,7 +272,7 @@ namespace Sistema.Presentacion
 
                     if (cantRegistrosDesactivados > 0)
                     {
-                        this.MensajeOk("Se desactivaron " + cantRegistrosDesactivados + " registros");
+                        this.MensajeOk("Se desactivó " + cantRegistrosDesactivados + " registro(s)");
                     }
                     else
                     {
@@ -321,7 +322,7 @@ namespace Sistema.Presentacion
 
                     if (cantRegistrosEliminados > 0)
                     {
-                        this.MensajeOk("Se eliminaron " + cantRegistrosEliminados + " registros");
+                        this.MensajeOk("Se eliminó " + cantRegistrosEliminados + " registro(s)");
                     }
                     else
                     {

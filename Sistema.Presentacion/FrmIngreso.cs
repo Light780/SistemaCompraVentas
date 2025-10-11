@@ -219,7 +219,13 @@ namespace Sistema.Presentacion
             {
                 foreach (DataRow FilaTemp in DtDetalle.Rows)
                 {
-                    Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+                    try
+                    {
+                        Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
             }           
 
@@ -284,15 +290,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (TxtIdProveedor.Text == string.Empty || TxtImpuesto.Text==string.Empty || TxtNumComprobante.Text==string.Empty || DtDetalle.Rows.Count==0)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(TxtIdProveedor, "Seleccione un proveedor.");
-                    ErrorIcono.SetError(TxtImpuesto, "Ingrese un impuesto.");
-                    ErrorIcono.SetError(TxtNumComprobante, "Ingrese el número del comprobante.");
-                    ErrorIcono.SetError(DgvDetalle, "Debe tener al menos un detalle.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NIngreso.Insertar(Convert.ToInt32(TxtIdProveedor.Text),Variables.IdUsuario,CboComprobante.Text,TxtSerieComprobante.Text.Trim(),TxtNumComprobante.Text.Trim(),Convert.ToDecimal(TxtImpuesto.Text),Convert.ToDecimal(TxtTotal.Text),DtDetalle);
                     if (Rpta.Equals("OK"))
@@ -311,6 +309,52 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            ErrorIcono.Clear();
+
+            // Validate each field individually
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(TxtIdProveedor.Text))
+            {
+                ErrorIcono.SetError(TxtIdProveedor, "Seleccione un proveedor.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtImpuesto.Text))
+            {
+                ErrorIcono.SetError(TxtImpuesto, "Ingrese un impuesto.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtSerieComprobante.Text))
+            {
+                ErrorIcono.SetError(TxtImpuesto, "Ingrese la serie de comprobante.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtNumComprobante.Text))
+            {
+                ErrorIcono.SetError(TxtNumComprobante, "Ingrese el número del comprobante.");
+                isValid = false;
+            }
+
+            if (DtDetalle.Rows.Count == 0)
+            {
+                ErrorIcono.SetError(DgvDetalle, "Debe tener al menos un detalle.");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
+                this.MensajeError("Por favor, corrija los campos marcados.");
+                return false; // or handle accordingly
+            }
+
+            return true;
         }
 
         private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

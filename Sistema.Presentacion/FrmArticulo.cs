@@ -176,15 +176,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (CboCategoria.Text == string.Empty || TxtNombre.Text == string.Empty || TxtPrecioVenta.Text == string.Empty || TxtStock.Text == string.Empty)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(CboCategoria, "Seleccione una categoría.");
-                    ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
-                    ErrorIcono.SetError(TxtPrecioVenta, "Ingrese un precio.");
-                    ErrorIcono.SetError(TxtStock, "Ingrese un stock inicial.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NArticulo.Insertar(Convert.ToInt32(CboCategoria.SelectedValue), TxtCodigo.Text.Trim(), TxtNombre.Text.Trim(), Convert.ToDecimal(TxtPrecioVenta.Text), Convert.ToInt32(TxtStock.Text), TxtDescripcion.Text.Trim(), TxtImagen.Text.Trim());
                     if (Rpta.Equals("OK"))
@@ -228,8 +220,10 @@ namespace Sistema.Presentacion
                 Imagen = Convert.ToString(DgvListado.CurrentRow.Cells["Imagen"].Value);
                 if (Imagen != string.Empty)
                 {
-                    PicImagen.Image = Image.FromFile(this.Directorio + Imagen);
-                    TxtImagen.Text = Imagen;
+                    if(File.Exists(this.Directorio + Imagen)){
+                        PicImagen.Image = Image.FromFile(this.Directorio + Imagen);
+                        TxtImagen.Text = Imagen;
+                    }
                 }
                 else
                 {
@@ -249,15 +243,7 @@ namespace Sistema.Presentacion
             try
             {
                 string Rpta = "";
-                if (TxtId.Text == string.Empty || CboCategoria.Text == string.Empty || TxtNombre.Text == string.Empty || TxtPrecioVenta.Text == string.Empty || TxtStock.Text == string.Empty)
-                {
-                    this.MensajeError("Falta ingresar algunos datos, serán remarcados.");
-                    ErrorIcono.SetError(CboCategoria, "Seleccione una categoría.");
-                    ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
-                    ErrorIcono.SetError(TxtPrecioVenta, "Ingrese un precio.");
-                    ErrorIcono.SetError(TxtStock, "Ingrese un stock inicial.");
-                }
-                else
+                if(ValidarCampos())
                 {
                     Rpta = NArticulo.Actualizar(Convert.ToInt32(TxtId.Text), Convert.ToInt32(CboCategoria.SelectedValue), TxtCodigo.Text.Trim(), this.NombreAnt, TxtNombre.Text.Trim(), Convert.ToDecimal(TxtPrecioVenta.Text), Convert.ToInt32(TxtStock.Text), TxtDescripcion.Text.Trim(), TxtImagen.Text.Trim());
                     if (Rpta.Equals("OK"))
@@ -281,6 +267,62 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            ErrorIcono.Clear();
+
+            // Validate each field individually
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(TxtCodigo.Text))
+            {
+                ErrorIcono.SetError(TxtCodigo, "Ingrese un código de barras.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(CboCategoria.Text))
+            {
+                ErrorIcono.SetError(CboCategoria, "Seleccione una categoría.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtNombre.Text))
+            {
+                ErrorIcono.SetError(TxtNombre, "Ingrese un nombre.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPrecioVenta.Text))
+            {
+                ErrorIcono.SetError(TxtPrecioVenta, "Ingrese un precio.");
+                isValid = false;
+            }
+            else if (!double.TryParse(TxtPrecioVenta.Text, out double precio) || precio <= 0)
+            {
+                ErrorIcono.SetError(TxtPrecioVenta, "Ingrese un precio válido mayor a 0.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtStock.Text))
+            {
+                ErrorIcono.SetError(TxtStock, "Ingrese un stock inicial.");
+                isValid = false;
+            }
+            else if (!int.TryParse(TxtStock.Text, out _))
+            {
+                ErrorIcono.SetError(TxtStock, "Ingrese un stock válido.");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
+                this.MensajeError("Por favor, corrija los campos marcados.");
+                return false; // or handle accordingly
+            }
+
+            return true;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -327,6 +369,7 @@ namespace Sistema.Presentacion
                     int Codigo;
                     string Rpta = "";
                     string Imagen = "";
+                    int cantRegistrosEliminados = 0;
 
                     foreach (DataGridViewRow row in DgvListado.Rows)
                     {
@@ -338,15 +381,23 @@ namespace Sistema.Presentacion
 
                             if (Rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se eliminó el registro: " + Convert.ToString(row.Cells[5].Value));
-                                File.Delete(this.Directorio + Imagen);
-                            }
-                            else
-                            {
-                                this.MensajeError(Rpta);
+                                if(File.Exists(this.Directorio + Imagen))
+                                    File.Delete(this.Directorio + Imagen);
+
+                                cantRegistrosEliminados++;
                             }
                         }
                     }
+
+                    if (cantRegistrosEliminados > 0)
+                    {
+                        this.MensajeOk("Se eliminó " + cantRegistrosEliminados + " registro(s)");
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
+                    }
+
                     this.Listar();
                 }
             }
@@ -366,24 +417,31 @@ namespace Sistema.Presentacion
                 {
                     int Codigo;
                     string Rpta = "";
+                    int cantRegistrosDesactivados = 0;
 
                     foreach (DataGridViewRow row in DgvListado.Rows)
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             Codigo = Convert.ToInt32(row.Cells[1].Value);
-                            Rpta = NArticulo.Desactivar(Codigo);
+                            Rpta = NCategoria.Activar(Codigo);
 
                             if (Rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se desactivó el registro: " + Convert.ToString(row.Cells[5].Value));
-                            }
-                            else
-                            {
-                                this.MensajeError(Rpta);
+                                cantRegistrosDesactivados++;
                             }
                         }
                     }
+
+                    if (cantRegistrosDesactivados > 0)
+                    {
+                        this.MensajeOk("Se desactivó " + cantRegistrosDesactivados + " registro(s)");
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
+                    }
+
                     this.Listar();
                 }
             }
@@ -403,6 +461,7 @@ namespace Sistema.Presentacion
                 {
                     int Codigo;
                     string Rpta = "";
+                    int cantRegistrosActivados = 0;
 
                     foreach (DataGridViewRow row in DgvListado.Rows)
                     {
@@ -413,14 +472,20 @@ namespace Sistema.Presentacion
 
                             if (Rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se activó el registro: " + Convert.ToString(row.Cells[5].Value));
-                            }
-                            else
-                            {
-                                this.MensajeError(Rpta);
+                                cantRegistrosActivados++;
                             }
                         }
                     }
+
+                    if (cantRegistrosActivados > 0)
+                    {
+                        this.MensajeOk("Se activó " + cantRegistrosActivados + " registro(s)");
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
+                    }
+
                     this.Listar();
                 }
             }
